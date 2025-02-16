@@ -17,14 +17,16 @@ const messages = ref(existingMessages);
  * Adds a message to the chat
  * @param {String} content Message content
  */
-function addMessage(content) {
+function addMessage(content, type) {
+  // console.log(type);
   const message = {
     content,
-    type: "text", // Hint: you may want to parameterize this
+    type, // Hint: you may want to parameterize this
     senderId: USER_ID,
     timestamp: new Date(),
   };
   messages.value = [...messages.value, message];
+  console.log(messages)
 }
 
 // Use a behavior that automatically scrolls the message list to the bottom whenever its content changes.
@@ -36,6 +38,7 @@ provide("userId", USER_ID);
 </script>
 
 <template>
+  <h1>Student Name: Winona Fernandes</h1>
   <CenterOnPage>
     <div class="chat shadow-2">
       <div ref="messageListElement" class="message-list">
